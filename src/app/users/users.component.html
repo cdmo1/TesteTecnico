@@ -1,7 +1,32 @@
 <app-header></app-header>
     <router-outlet>
         <div class="container">
-            Teste
+            <div style="overflow-x:auto;" class="main-div">
+                <table>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Birth Date</th>
+                        <th>Cellphone Number</th>
+                        <th>Delete</th>
+                        <th>Edit</th>
+                    </tr>
+                    <tr *ngFor="let user of users">
+                        <td> {{user.id_users }} </td>
+                        <td> {{user.name_users }} </td>
+                        <td> {{user.dt_birth_users }} </td>
+                        <td> {{user.cellphone_number_users }} </td>
+                        <td (click)="deleteUser(user.id_users)"> <mat-icon>delete</mat-icon> </td>
+                        <td (click)="deleteUser(user.id_users)"> <mat-icon>edit</mat-icon> </td>     
+                    </tr>
+                </table>
+                <ng-template #non>
+                    <p>None user found.</p>
+                </ng-template>  
+            </div>
+            <button class="btn" routerLink="/users/create" mat-raised-button color="primary">Create new user <mat-icon>add</mat-icon></button>
+            
+
         </div>
     </router-outlet>
 <app-footer></app-footer>

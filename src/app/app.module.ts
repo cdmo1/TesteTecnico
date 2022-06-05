@@ -10,6 +10,10 @@ import { UsersComponent } from './users/users.component';
 import { MaterialModule } from './material/material.module';
 import { ProductsComponent } from './products/products.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import { UsersService } from './services/users.service';
+import { UsersCreateComponent } from './users-create/users-create.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
     FooterComponent,
     HomeComponent,
     UsersComponent,
-    ProductsComponent
+    ProductsComponent,
+    UsersCreateComponent
   ],
   imports: [
     BrowserModule,
@@ -26,9 +31,12 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     MaterialModule,
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
+    
   ],
-  providers: [],
+  providers: [UsersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
