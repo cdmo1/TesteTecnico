@@ -12,15 +12,18 @@ export class ProductsService {
   constructor(private http: HttpClient) { }
 
   listProducts() {
-    return this.http.get(`${this.URL}list.php`);
+    return this.http.get(`${this.URL}listProduct.php`);
   }
 
-  createProduct(products) {
-    return this.http.post(`${this.URL}create.php`, JSON.stringify(products));
+  createProduct(product) {
+    return this.http.post(`${this.URL}createProduct.php`, JSON.stringify(product));
   }
 
   deleteProduct(id_products: number) {
-    return this.http.get(`${this.URL}delete.php?id_products=${id_products}`);
+    return this.http.get(`${this.URL}deleteProduct.php?id_products=${id_products}`);
   }
   
+  updateProduct(product) {
+    return this.http.post(`${this.URL}updateProduct.php`, JSON.stringify(product));
+  }
 }

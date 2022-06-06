@@ -48,15 +48,14 @@ export class UsersComponent implements OnInit {
     if(this.userUpdate){
       this.usersService.updateUser(this.user).subscribe(
         data => {
-          this.router.navigate(['/users'])
-
+          window.location.reload();
         }
       );
     }
     else{
       this.usersService.createUser(this.user).subscribe(
         data => {
-            this.router.navigate(['/'])
+          window.location.reload();
         }
       );
     }

@@ -1,20 +1,41 @@
+
 <app-header></app-header>
-    <div class="container">
-        <table class="table table-striped table-bordered table-sm row-border hover" datatable >
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Website</th>
-              </tr>
-            </thead>
-            <tbody>
-             <tr>
-                   <td></td>
-                   <td></td>
-                   <!--<td>{{group.website}}</td>-->
-               </tr>
-            </tbody>
-          </table>
-    </div>
-<app-footer></app-footer>
+  <router-outlet>
+      <div class="grid-container">
+          <div class="grid-item">
+              <div style="overflow-x:auto;" class="main-div">
+                  <table>
+                      <tr class="tb-header">
+                          <th>Id</th>
+                          <th>Name</th>
+                          <th>Quantity</th>
+                          <th>Price</th>
+                      </tr>
+                      <tr *ngFor="let product of products" class="tb-body">
+                          <td id="id_products"> {{product.id_products }} </td>
+                          <td id="name_products"> {{product.name_products }} </td>
+                          <td id="quantity_products"> {{product.quantity }} </td>
+                          <td id="price_products"> {{product.price }} </td>
+                          <td (click)="deleteProduct(product.id_products)"> <mat-icon>delete</mat-icon> </td>
+                          <td (click)="actionUpdate(product)"> <mat-icon>edit</mat-icon> </td>     
+                      </tr>
+                  </table>
+                  <ng-template #non>
+                      <p>None product found.</p>
+                  </ng-template>  
+              </div>
+          </div>
+          <div class="grid-item">
+              <div style="overflow-x:auto;" >
+                  <div class="form-send">
+                      <span class="lbl">Id:</span> <br><input type="text" class="txt" [(ngModel)]="product.id_products"><br>
+                      <span class="lbl">Name:</span><br> <input type="text" class="txt" [(ngModel)]="product.name_products" /><br>
+                      <span class="lbl">Quantity:</span><br> <input type="text" class="txt" data-mask="00/00/0000" [(ngModel)]="product.quantity_products" /><br>
+                      <span class="lbl">Price:</span><br> <input type="text" class="txt" [(ngModel)]="product.price_products" /><br>
+                  </div>
+              </div>
+              <button class="btn" (click)="createProduct()" mat-raised-button color="primary">Save product <mat-icon>save</mat-icon></button>
+          </div>
+      </div>
+  </router-outlet>
+<app-footer></app-footer> 

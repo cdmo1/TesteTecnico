@@ -12,18 +12,18 @@ export class UsersService {
   constructor(private http: HttpClient) { }
 
   listUsers() {
-    return this.http.get(`${this.URL}list.php`);
+    return this.http.get(`${this.URL}listUser.php`);
   }
 
   createUser(user) {
-    return this.http.post(`${this.URL}create.php`, JSON.stringify(user));
+    return this.http.post(`${this.URL}createUser.php`, JSON.stringify(user));
   }
 
   deleteUser(id_users: number) {
-    return this.http.get(`${this.URL}delete.php?id_users=${id_users}`);
+    return this.http.get(`${this.URL}deleteUser.php?id_users=${id_users}`);
   }
   
   updateUser(user) {
-    return this.http.post(`${this.URL}update.php`, JSON.stringify(user));
+    return this.http.post(`${this.URL}updateUser.php`, JSON.stringify(user));
   }
 }

@@ -13,7 +13,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { UsersService } from './services/users.service';
-import { UsersCreateComponent } from './users-create/users-create.component';
 
 @NgModule({
   declarations: [
@@ -22,8 +21,7 @@ import { UsersCreateComponent } from './users-create/users-create.component';
     FooterComponent,
     HomeComponent,
     UsersComponent,
-    ProductsComponent,
-    UsersCreateComponent
+    ProductsComponent
   ],
   imports: [
     BrowserModule,

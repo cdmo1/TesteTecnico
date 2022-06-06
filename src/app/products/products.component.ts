@@ -13,8 +13,8 @@ export class ProductsComponent implements OnInit {
   product = {
     id_products: null,
     name_products: null,
-    dt_birth_products: null,
-    cellphone_number_products: null
+    quantity_products: null,
+    price_products: null
   }
   productUpdate = false;
 
@@ -44,26 +44,25 @@ export class ProductsComponent implements OnInit {
     console.log(this.productUpdate);
   }
 
-  createUser() {
+  createProduct() {
     if(this.productUpdate){
       this.productsService.updateProduct(this.product).subscribe(//nao entendi o pq, pesquisei mas ainda assim nao entendi, e sobre a tabela products, ela ja estava criada, e atribui coisas nela, ontem sabe, entao mano, se vc puder me explicar, nao so isso na real, tupo pq vou ter que explicar a ele, se possivel, por favor, muito obrigado por tudo que tem feito por mim, mesmo!
         data => {
-          this.router.navigate(['/products'])
-
+          window.location.reload();
         }
       );
     }
     else{
       this.productsService.createProduct(this.product).subscribe(
         data => {
-            this.router.navigate(['/'])
+          window.location.reload();
         }
       );
     }
    
   }
 
-  deleteUser(id_products) {
+  deleteProduct(id_products) {
     this.productsService.deleteProduct(id_products).subscribe(
       data => {
         this.searchProducts();
