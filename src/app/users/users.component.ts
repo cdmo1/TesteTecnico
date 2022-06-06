@@ -10,13 +10,13 @@ import {Router} from "@angular/router"
 export class UsersComponent implements OnInit {
 
   users = null as any;
-
   user = {
     id_users: null,
     name_users: null,
     dt_birth_users: null,
     cellphone_number_users: null
   }
+  userUpdate = false;
 
 
 
@@ -37,6 +37,30 @@ export class UsersComponent implements OnInit {
     } else {
       return true;
     }
+  }
+
+  actionUpdate(users){
+    this.userUpdate = !this.userUpdate;
+    console.log(this.userUpdate);
+  }
+
+  createUser() {
+    if(this.userUpdate){
+      this.usersService.updateUser(this.user).subscribe(
+        data => {
+          this.router.navigate(['/users'])
+
+        }
+      );
+    }
+    else{
+      this.usersService.createUser(this.user).subscribe(
+        data => {
+            this.router.navigate(['/'])
+        }
+      );
+    }
+   
   }
 
   deleteUser(id_users) {

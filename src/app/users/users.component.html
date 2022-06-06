@@ -1,32 +1,49 @@
+<script>
+    is_user: document.getElementById('id_user').textContent;
+    name_user: document.getElementById('name_user').textContent;
+    dt_birth_user: document.getElementById('dt_birth_user').textContent;
+    cellphone_number_user: document.getElementById('cellphone_number_user').textContent;
+console.log(is_user);
+</script>
 <app-header></app-header>
     <router-outlet>
-        <div class="container">
-            <div style="overflow-x:auto;" class="main-div">
-                <table>
-                    <tr>
-                        <th>Id</th>
-                        <th>Name</th>
-                        <th>Birth Date</th>
-                        <th>Cellphone Number</th>
-                        <th>Delete</th>
-                        <th>Edit</th>
-                    </tr>
-                    <tr *ngFor="let user of users">
-                        <td> {{user.id_users }} </td>
-                        <td> {{user.name_users }} </td>
-                        <td> {{user.dt_birth_users }} </td>
-                        <td> {{user.cellphone_number_users }} </td>
-                        <td (click)="deleteUser(user.id_users)"> <mat-icon>delete</mat-icon> </td>
-                        <td (click)="deleteUser(user.id_users)"> <mat-icon>edit</mat-icon> </td>     
-                    </tr>
-                </table>
-                <ng-template #non>
-                    <p>None user found.</p>
-                </ng-template>  
+        <div class="grid-container">
+            <div class="grid-item">
+                <div style="overflow-x:auto;" class="main-div">
+                    <table>
+                        <tr class="tb-header">
+                            <th>Id</th>
+                            <th>Name</th>
+                            <th>Birth Date</th>
+                            <th>Cellphone Number</th>
+                            <th>Delete</th>
+                            <th>Edit</th>
+                        </tr>
+                        <tr *ngFor="let user of users" class="tb-body">
+                            <td id="id_users"> {{user.id_users }} </td>
+                            <td id="name_users"> {{user.name_users }} </td>
+                            <td id="dt_birth_users"> {{user.dt_birth_users }} </td>
+                            <td id="cellphone_number_users"> {{user.cellphone_number_users }} </td>
+                            <td (click)="deleteUser(user.id_users)"> <mat-icon>delete</mat-icon> </td>
+                            <td (click)="actionUpdate(user)"> <mat-icon>edit</mat-icon> </td>     
+                        </tr>
+                    </table>
+                    <ng-template #non>
+                        <p>None user found.</p>
+                    </ng-template>  
+                </div>
             </div>
-            <button class="btn" routerLink="/users/create" mat-raised-button color="primary">Create new user <mat-icon>add</mat-icon></button>
-            
-
+            <div class="grid-item">
+                <div style="overflow-x:auto;" >
+                    <div class="form-send">
+                        <span class="lbl">Id:</span> <br><input type="text" class="txt" [(ngModel)]="user.id_users"><br>
+                        <span class="lbl">Name:</span><br> <input type="text" class="txt" [(ngModel)]="user.name_users" /><br>
+                        <span class="lbl">Date Birth:</span><br> <input type="text" class="txt" data-mask="00/00/0000" [(ngModel)]="user.dt_birth_users" /><br>
+                        <span class="lbl">Cellphone Number:</span><br> <input type="text" class="txt" data-mask="(00) 00000-0000"  [(ngModel)]="user.cellphone_number_users" /><br>
+                    </div>
+                </div>
+                <button class="btn" (click)="createUser()" mat-raised-button color="primary">Save user <mat-icon>save</mat-icon></button>
+            </div>
         </div>
     </router-outlet>
-<app-footer></app-footer>
+<app-footer></app-footer> 

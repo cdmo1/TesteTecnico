@@ -1,26 +1,45 @@
-.container{
-    background-color: rgb(238, 238, 252);
-    height: 80%;
-}
+
 
 th, td {
     text-align: left;
-    padding: 8px;
+    padding: 5px;
 }
 
-tr:nth-child(even){background-color: #cee3fc}
+tr:nth-child(even){background-color: #9ec4f3}
 
-.main-div{
-    display: flex;
-    justify-content: center;
-    height: 80%;
-    width: 90%;
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background-color: #3f51b5;
+    padding: 5px;
+    height: 85%;
+  }
+  .grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+  }
+.tb-header{
+  font-size: 18px;
+  color: #065bc4;
 }
-.btn{
-    display: flex;
-    justify-content: center;
-    width: 200px;
-    height: 50px;
-    margin-left: 40%;
-    margin-top: 5%;
+.tb-body{
+  font-size: 18px;
+  color: #065bc4;
+}
+.form-send{
+  margin-left: auto;
+  justify-items: start;
+}
+.lbl{
+  font-size: 20px;
+  color: #065bc4;
+}
+.txt{
+  border-radius: 5px;
+  border: 1px #065bc4;
+  width: 250px;
+  height: 25px;
 }

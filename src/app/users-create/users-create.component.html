@@ -12,8 +12,8 @@
                     <tr>
                         <td> <input type="text" [(ngModel)]="user.id_users" /></td>
                         <td> <input type="text" [(ngModel)]="user.name_users" /></td>
-                        <td> <input type="text" [(ngModel)]="user.dt_birth_users" /></td>
-                        <td> <input type="text" [(ngModel)]="user.cellphone_number_users" /></td>   
+                        <td> <input type="text" data-mask="00/00/0000" [(ngModel)]="user.dt_birth_users" /></td>
+                        <td> <input type="text"data-mask="(00) 00000-0000"  [(ngModel)]="user.cellphone_number_users" /></td>   
                     </tr>
                 </table>
                 <ng-template #non>

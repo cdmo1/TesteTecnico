@@ -12,7 +12,6 @@ export class UsersCreateComponent implements OnInit {
 
   users = null as any;
  
-
   user = {
     id_users: null,
     name_users: null,

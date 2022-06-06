@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UsersService {
 
-  URL = "http://localhost/korpco/";
+  URL = "http://localhost/korpco/users/";
 
   constructor(private http: HttpClient) { }
 
@@ -22,6 +22,8 @@ export class UsersService {
   deleteUser(id_users: number) {
     return this.http.get(`${this.URL}delete.php?id_users=${id_users}`);
   }
-
-
+  
+  updateUser(user) {
+    return this.http.post(`${this.URL}update.php`, JSON.stringify(user));
+  }
 }
