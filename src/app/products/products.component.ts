@@ -46,7 +46,7 @@ export class ProductsComponent implements OnInit {
 
   createProduct() {
     if(this.productUpdate){
-      this.productsService.updateProduct(this.product).subscribe(//nao entendi o pq, pesquisei mas ainda assim nao entendi, e sobre a tabela products, ela ja estava criada, e atribui coisas nela, ontem sabe, entao mano, se vc puder me explicar, nao so isso na real, tupo pq vou ter que explicar a ele, se possivel, por favor, muito obrigado por tudo que tem feito por mim, mesmo!
+      this.productsService.updateProduct(this.product).subscribe(
         data => {
           window.location.reload();
         }
